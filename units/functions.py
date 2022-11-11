@@ -3,6 +3,8 @@ import json
 import re
 
 
+# TODO: создать список юзеров, которым можно отправлять токсичные смс. И функцию на True False.
+
 def check_user_text(text: str, filename: str = 'DATA_WORD/data.json') -> str | None:
     """
     Если в тексте присутствует слово из data.json, возвращаю ответ на это слово. Иначе, None.
