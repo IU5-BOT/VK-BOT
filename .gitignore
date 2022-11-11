@@ -8,4 +8,6 @@ dist/*
 **/*.env
 **/*.spec
 
+cringe.py
+
 bot_corpus/dialogues.txt
