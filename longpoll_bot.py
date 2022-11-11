@@ -28,6 +28,10 @@ class LongPollBot(Bot):
             # если пришло новое сообщение - происходит проверка текста сообщения
             if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
 
+                # TODO: Улучшить через regular'ы.
+                if event.text in ['ты', 'нет ты', 'нет, ты']:
+                    self.send_message(receiver_user_id=event.user_id, message_text='Нет, ты')
+
                 checking_res: str | None = check_user_text(event.text)
                 if checking_res is not None:
 
@@ -36,5 +40,5 @@ class LongPollBot(Bot):
                         self.send_message(receiver_user_id=event.user_id, message_text=checking_res)
 
                     # ответ отпрвляется в беседу (если сообщение было получено в общем чате)
-                    elif event.from_chat:
-                        self.send_message(receiver_user_id=event.chat_id, message_text=checking_res)
+                    # elif event.from_chat:
+                    #     self.send_message(receiver_user_id=event.chat_id, message_text=checking_res)
