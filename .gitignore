@@ -8,6 +8,7 @@ dist/*
 **/*.env
 **/*.spec
 
+.DS_Store
 cringe.py
 
 bot_corpus/dialogues.txt
