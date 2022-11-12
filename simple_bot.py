@@ -64,9 +64,6 @@ class Bot:
             print("Unauthorized. Check if ACCESS_TOKEN is valid")
             return
 
-        if receiver_user_id == '202056822':
-            receiver_user_id = self.default_user_id
-
         try:
             self.vk_api_access.messages.send(user_id=receiver_user_id, message=message_text, random_id=get_random_id())
             print(f"Сообщение отправлено для ID {receiver_user_id} с текстом: {message_text}")
