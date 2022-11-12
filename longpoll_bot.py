@@ -30,7 +30,8 @@ class LongPollBot(Bot):
             # если пришло новое сообщение - происходит проверка текста сообщения
             if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
                 user_id: str = event.user_id
-                pattern = re.compile(r'(((н|h)+(е|e)+т*)|(n+o+)|(н|h(о|o)+у|y))*\s*,*.*\s*((т+ы+)|(y|у+o|о+u+)|u|ю)')
+                pattern = re.compile(
+                    r'(^(((н|h)+(е|e)+т*)|(n+o+)|(н|h(о|o)+у|y))*\s*,*\.*\s*((т+ы+)+|(y|у+o|о+u+)+|u+))[\.,]*$')
                 if pattern.match(event.text.strip().lower()) and user_id is not IMPORTANT_PERSON:
                     self.send_message(receiver_user_id=user_id, message_text='Нет, ты')
 

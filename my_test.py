@@ -3,9 +3,9 @@ import re
 
 
 def main():
-    pattern = re.compile(r'((н+(е|e)+т*)|(n+o+))*\s*,*\s*((т+ы+)|(y+o+u+))')
-    if pattern.match('you'):
-        print('блииин')
+    pattern = re.compile(r'(^(((н|h)+(е|e)+т*)|(n+o+)|(н|h(о|o)+у|y))*\s*,*\.*\s*((т+ы+)+|(y|у+o|о+u+)+|u+))[\.,]*$')
+    if pattern.match('нет, ты.  '):
+        print('EE')
 
 
 if __name__ == '__main__':
