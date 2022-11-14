@@ -4,5 +4,6 @@ from longpoll_bot import LongPollBot
 from nlu_longpoll_bot import NLULongPollBot
 
 if __name__ == '__main__':
+
     long_poll_bot = LongPollBot()
     long_poll_bot.run_long_poll()
