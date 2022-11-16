@@ -67,6 +67,7 @@ def get_sum_wait(line, end_point, sum_cost) -> int | None:
 AB = [
     (0, 1),
     (1, 2),
+    (2, 1),
     (2, 4),
     (4, 1),
     (4, 5),
@@ -83,7 +84,7 @@ POINTS = [
 ]
 LINES = []
 # Для С++.
-for i in range(10 - 1):
+for i in range(10):
     # a, b, s = int(input('a=')), int(input('b=')), 5
     a, b, s = AB[i][0], AB[i][1], 1
     flag_res: bool = False
@@ -99,12 +100,9 @@ for i in range(10 - 1):
 
 # Поиск пути.
 # start, end = int(input('a=')), int(input('b='))
-start, end = 0, 2
+start, end = 0, 4
 TEMP_LINES = LINES[:]
 for el in LINES:
     if el.x == start:
         print(get_sum_wait(el, end, 1))
-        # global TEMP_LINES
-        TEMP_LINES = LINES[:]
-        for el2 in LINES:
-            el2.visited = True
+        break
