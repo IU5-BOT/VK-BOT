@@ -30,7 +30,7 @@ class LongPollBot(Bot):
             # если пришло новое сообщение - происходит проверка текста сообщения
             if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
                 user_id: str = event.user_id
-                checking_res: str | None = check_user_text(event.text)
+                checking_res = check_user_text(event.text)
                 pattern = re.compile(
                     r'(^(((н|h)+(е|e)+т*)|(n+o+)|(н|h(о|o)+у|y))*\s*,*\.*\s*((т+ы+)+|(y|у+o|о+u+)+|u+))[\.,]*\W*$')
                 if pattern.match(event.text.strip().lower()) and user_id is not IMPORTANT_PERSONS:
