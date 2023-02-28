@@ -9,6 +9,12 @@ def check_user_text(text: str, filename: str = 'DATA_WORD/data.json'):
     """
     Если в тексте присутствует слово из data.json, возвращаю ответ на это слово. Иначе, None.
     """
+    if text.lower() in ['пока', 'бб']:
+        return text
+
+    elif text in []:
+        return text
+
     with open(filename, encoding='utf-8') as data:
         WORDS = json.load(data)
 
