@@ -4,7 +4,7 @@
 
 import vk_api
 from vk_api.utils import get_random_id  # снижение количества повторных отправок сообщения
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 
@@ -30,7 +30,7 @@ class Bot:
         """
         Инициализация бота при помощи получения доступа к API ВКонтакте
         """
-        load_dotenv()
+        # load_dotenv()
 
         # авторизация
         self.vk_api_access = self.do_auth()
@@ -46,7 +46,9 @@ class Bot:
         Использует переменную, хранящуюся в файле настроек окружения .env в виде строки ACCESS_TOKEN="1q2w3e4r5t6y7u8i9o..."
         :return: возможность работать с API
         """
-        token = os.getenv("ACCESS_TOKEN")
+        ACCESS_TOKEN = "vk1.a.vyv08uzu-swf1Hm-AB29C6iXeZTkM5tqoRljPy-P2wWVpR2C4_nqZ2eNUrrgnsTBDVW64EubtQ0H0pbhk6g5VNHltu7TBp0hv7Y0NaZenHY0UadmF6BSjZlp1I38LE3PJzgoYQBqeTakr6Zm2oDGCCHdMZSOhLPEUMDulvUqryCLcT46L8bpe_J-y2z-DyyaGyhlSJKRC8jgSM4z7TitZA"
+        user_id = "248055283"
+        token = ACCESS_TOKEN
         try:
             self.vk_session = vk_api.VkApi(token=token)
             return self.vk_session.get_api()

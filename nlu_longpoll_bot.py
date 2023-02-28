@@ -79,7 +79,6 @@ class NLULongPollBot(LongPollBot):
 
                 # ответ отправляется в личные сообщения пользователя (если сообщение из личного чата)
                 if event.from_user:
-
                     # получение ответа бота с последующей отправкой его пользователю
                     bot_response = self.get_bot_response(event.text)
                     self.send_message(receiver_user_id=event.user_id, message_text=bot_response)
