@@ -40,7 +40,3 @@ class LongPollBot(Bot):
                     # ответ отправляется в личные сообщения пользователя (если сообщение из личного чата)
                     if event.from_user and user_id is not IMPORTANT_PERSONS:
                         self.send_message(receiver_user_id=user_id, message_text=checking_res)
-
-                    # ответ отпрвляется в беседу (если сообщение было получено в общем чате)
-                    # elif event.from_chat:
-                    #     self.send_message(receiver_user_id=event.chat_id, message_text=checking_res)
