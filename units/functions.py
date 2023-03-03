@@ -1,8 +1,6 @@
 # Copyright © 2022 mightyK1ngRichard <dimapermyakov55@gmail.com>
 import json
-import openai
 import re
-
 
 def check_user_text(text: str, filename: str = 'DATA_WORD/data.json'):
     """
@@ -29,15 +27,18 @@ def check_user_text(text: str, filename: str = 'DATA_WORD/data.json'):
 # print(check_user_text('ПРИВЕТ стая, как твои дела?', '../DATA_WORD/data.json'))
 
 
-def make_question(question):
-    responde = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=f"{question}",
-        temperature=0.9,
-        max_tokens=1000,
-        top_p=1,
-        frequency_penalty=0.0,
-        presence_penalty=0.6,
-    )
-
-    return (responde['choices'][0]['text']).strip()
+# def make_question(question):
+#     openai.api_key = API_KEY
+#     print(f'ВОПРОС: {question}')
+#     responde = openai.Completion.create(
+#         model="text-davinci-003",
+#         prompt=f"{question}",
+#         temperature=0.9,
+#         max_tokens=1000,
+#         top_p=1,
+#         frequency_penalty=0.0,
+#         presence_penalty=0.6,
+#     )
+#     res = (responde['choices'][0]['text']).strip()
+#     print(f'ОТВЕТ - {res}')
+#     return res
