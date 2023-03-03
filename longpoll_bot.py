@@ -33,8 +33,9 @@ class LongPollBot(Bot):
             # если пришло новое сообщение - происходит проверка текста сообщения
             if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
                 user_id: str = event.user_id
-
-                if event.text.lower().splite()[:2] in ['ричард помоги', 'richard помоги']:
+                
+                text_from_user = event.text.lower()
+                if ' '.join(text_from_user.split()[:2]) in ['ричард помоги', 'richard помоги']:
                     text_for_user: str = make_question(event.text)
                     self.send_message(receiver_user_id=user_id, message_text=text_for_user)
 
