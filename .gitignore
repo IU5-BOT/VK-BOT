@@ -10,5 +10,6 @@ dist/*
 
 .DS_Store
 cringe.py
+config.py
 
 bot_corpus/dialogues.txt

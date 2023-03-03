@@ -4,8 +4,8 @@
 
 import vk_api
 from vk_api.utils import get_random_id  # снижение количества повторных отправок сообщения
-# from dotenv import load_dotenv
 import os
+from config import *
 
 
 class Bot:
@@ -46,7 +46,6 @@ class Bot:
         Использует переменную, хранящуюся в файле настроек окружения .env в виде строки ACCESS_TOKEN="1q2w3e4r5t6y7u8i9o..."
         :return: возможность работать с API
         """
-        ACCESS_TOKEN = "vk1.a.c--F-gyV_BW1sQTjHI_HLLvneq3qlVSJW4TOCcx9OkoCaPWkbox-sz6iJUmHhAtYuLOeeqmBpusUEG7F3iGae-sSOGqKdPQd_ucv25rgA_VxjbbNI6XAZBg8pN-6XaZSo7mIj-ttiR9tyiMJcx5JX49D9Fymr7uNe3ppqS_2c1cQgeeH1QooscAW2boN8vF7Fqm2O_5W7sViVlGBMZeJPg"
         user_id = "248055283"
         token = ACCESS_TOKEN
         try:

@@ -1,9 +1,8 @@
 # Copyright © 2022 mightyK1ngRichard <dimapermyakov55@gmail.com>
 import json
+import openai
 import re
 
-
-# TODO: создать список юзеров, которым можно отправлять токсичные смс. И функцию на True False.
 
 def check_user_text(text: str, filename: str = 'DATA_WORD/data.json'):
     """
@@ -26,4 +25,19 @@ def check_user_text(text: str, filename: str = 'DATA_WORD/data.json'):
             return str(*res)
     return None
 
+
 # print(check_user_text('ПРИВЕТ стая, как твои дела?', '../DATA_WORD/data.json'))
+
+
+def make_question(question):
+    responde = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=f"{question}",
+        temperature=0.9,
+        max_tokens=1000,
+        top_p=1,
+        frequency_penalty=0.0,
+        presence_penalty=0.6,
+    )
+
+    return (responde['choices'][0]['text']).strip()
