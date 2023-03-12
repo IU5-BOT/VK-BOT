@@ -35,9 +35,7 @@ class LongPollBot(Bot):
                 url_request = f'https://api.vk.com/method/users.get?user_ids={USER_ID}&fields=online&access_token={ACCESS_TOKEN}&v=5.131'
                 my_online_status = get(url_request).json()['response'][0]['online']
                 if my_online_status == 1:
-                    print('пока')
                     return
-                print('пока2')
 
                 user_id: str = event.user_id
 
