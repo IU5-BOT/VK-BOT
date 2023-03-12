@@ -2,6 +2,8 @@ from simple_bot import Bot  # базовый класс бота из файла
 from vk_api.longpoll import VkLongPoll, VkEventType  # использование VkLongPoll и VkEventType
 from units.functions import check_user_text
 from DATA_WORD.important_persons import IMPORTANT_PERSONS
+from config import *
+from requests import get
 import re
 
 
@@ -29,15 +31,16 @@ class LongPollBot(Bot):
 
             # если пришло новое сообщение - происходит проверка текста сообщения
             if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
+                # Если я онлайн, бот отвечать не будет.
+                url_request = f'https://api.vk.com/method/users.get?user_ids={USER_ID}&fields=online&access_token={ACCESS_TOKEN}&v=5.131'
+                my_online_status = get(url_request).json()['response'][0]['online']
+                if my_online_status == 1:
+                    print('пока')
+                    return
+                print('пока2')
+
                 user_id: str = event.user_id
 
-                # print('НАЧАЛО РАБОТЫ')
-                # text_from_user = event.text.lower()
-                # if ' '.join(text_from_user.split()[:2]) in ['ричард помоги', 'richard помоги']:
-                #     text_for_user: str = make_question(event.text.replace('ричард помоги', ''))
-                #     self.send_message(receiver_user_id=user_id, message_text=text_for_user)
-                #
-                # else:
                 checking_res = check_user_text(event.text)
                 pattern = re.compile(
                     r'(^(((н|h)+(е|e)+т*)|(n+o+)|(н|h(о|o)+у|y))*\s*,*\.*\s*((т+ы+)+|(y|у+o|о+u+)+|u+))[\.,]*\W*$')
