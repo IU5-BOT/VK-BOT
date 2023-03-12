@@ -10,6 +10,5 @@
 # Description of code: [📕](https://github.com/IU5-BOT/VK-BOT/blob/main/Description.md)
 
 # #TODO: 
-- [ ] Congratulate with Happy-Birthday
-- [ ] List of good users
-- [X] Be cool
+Крч всё переделывать когда-то буду)
+Всё фигня, я теперь не доволен. Как каникулы стукнут, может займусь. хзхз
